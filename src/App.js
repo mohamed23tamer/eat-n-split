@@ -68,6 +68,7 @@ export default function App() {
         <FormSplitBill
           selectedFriend={selectedFriend}
           onUpdateFriend={handleUpdateFriend}
+          key={selectedFriend.id}
         />
       )}
     </div>
@@ -172,7 +173,7 @@ function FormSplitBill({ selectedFriend, onUpdateFriend }) {
   function handleSubmit(e) {
     e.preventDefault()
 
-    if (!bill || !friendPaid) return;
+    if (!bill || !friendPaid) return
 
     onUpdateFriend(whoPayIt === 'user' ? paidByFriend : -friendPaid)
   }
